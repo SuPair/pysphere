@@ -22,16 +22,20 @@ def DisableSSL():
         ssl._create_default_https_context = _create_unverified_https_context
 #######################################
 
-DisableSSL()
-server = VIServer()
-server.connect(vCenterIP,username,password)
-hostslist = server.get_hosts().values()
-# print hostslist
+def main():
+    DisableSSL()
+    server = VIServer()
+    server.connect(vCenterIP,username,password)
+    hostslist = server.get_hosts().values()
+    # print hostslist
 
-f = open("hosts.txt","w")
-sep = "\n"
-f.write(sep.join(hostslist))
-f.close()
+    f = open("hosts.txt","w")
+    sep = "\n"
+    f.write(sep.join(hostslist))
+    f.close()
 
-#Disconnecting from the server
-server.disconnect()
+    #Disconnecting from the server
+    server.disconnect()
+
+if __name__ == '__main__':
+    main()
