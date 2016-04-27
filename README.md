@@ -1,2 +1,2 @@
 # pysphere
-pysphere管理VMware虚拟机
+pysphere管理VMware
